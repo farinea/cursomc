@@ -2,12 +2,12 @@ package com.farinea.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.farinea.cursomc.domain.Categoria;
 
-@SuppressWarnings("deprecation")
 public class CategoriaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
