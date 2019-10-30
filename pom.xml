@@ -9,11 +9,11 @@
 		<version>2.1.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.farinea.cursomc</groupId>
-	<artifactId>cursomc</artifactId>
+	<groupId>com.farinea.finanzaio</groupId>
+	<artifactId>finanzaio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cursomc</name>
-	<description>Estudo de caso Java para curso de Modelagem Conceitual com UML</description>
+	<description>Finanças Pessoais</description>
 
 	<properties>
 		<java.version>1.8</java.version>
