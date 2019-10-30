@@ -1,0 +1,10 @@
+.dashboard-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .table-td {
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+  }

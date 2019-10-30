@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+
+<mat-dialog-content [formGroup]="form">
+
+    <mat-form-field>
+
+        <input matInput 
+                placeholder="nome"
+               formControlName="nome">
+
+    </mat-form-field>
+
+    <mat-form-field>
+
+        <input matInput 
+               type="number"
+               inputmode="decimal"
+               placeholder="saldoInicial"
+               formControlName="saldoInicial">
+
+    </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button class="mat-raised-button"
+            (click)="close()">
+        Fechar
+    </button>
+
+    <button class="mat-raised-button mat-primary"
+            (click)="save()">
+        Salvar
+    </button>
+
+</mat-dialog-actions>

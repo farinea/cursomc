@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button 
+        fill="clear" 
+        slot="start"
+        routerLink="/operacao/{{ contaId }}"
+        routerDirection="back"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    <ion-title>{{ titulo }}</ion-title>
+    <ion-button shape="round" slot="end"> {{ contaNome }}</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+        <ion-fab-button navPush="CartPage" mini><ion-icon name="cart"></ion-icon></ion-fab-button>
+      </ion-fab> BOTÃO DO CARRINHO DE COMPRAS-->
+    <ion-list>        
+      <ion-item *ngFor="let item of items" routerLink="/movimento/{{ operacao }}/{{ contaId }}/{{ item.id }}" routerDirection="root">
+        <!--ion-thumbnail item-start>
+            <img src= "{{ bucketUrl }}/cat{{ item.id }}.jpg" >
+          </ion-thumbnail-->
+        <h2> {{ item.nome }} </h2>
+        </ion-item>
+      </ion-list>    
+</ion-content>

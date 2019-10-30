@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>        
+      <ion-button 
+        fill="clear" 
+        slot="start"
+        routerLink="/contas/{{tipoConta}}"
+        routerDirection="back"><ion-icon name="arrow-back"></ion-icon></ion-button>
+      <ion-title></ion-title>
+      <ion-button shape="round" slot="start"> {{ contaNome }}</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Saldo em {{hoje}}</ion-card-subtitle>
+          <ion-card-title>{{saldos?.saldo | currency:"R$ "}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+<ion-button 
+  expand="block"
+  shape="round"
+  size="large"
+  class="md-raised md-cornered"
+  color="success" 
+  routerLink="/categorias/Recebi/4/{{ contaId }}" 
+  routerDirection="forward">
+  <ion-icon size="large" name="add-circle"> </ion-icon>Recebi</ion-button>
+<ion-button 
+  expand="block"
+  shape="round"
+  size="large"
+  class="md-raised md-cornered"
+  color="danger" 
+  routerLink="/categorias/Paguei/5/{{ contaId }}" 
+  routerDirection="forward"> 
+  <ion-icon size="large" name="remove-circle"></ion-icon>Paguei</ion-button>
+<ion-button 
+  expand="block"
+  shape="round"
+  size="large"
+  class="md-raised md-cornered"
+  color="warning" 
+  routerLink="/categorias/Transferi/1/{{ contaId }}" 
+  routerDirection="forward"> 
+  <ion-icon size="large" name="swap"></ion-icon>Transferi</ion-button>
+
+  <ion-list>
+      <ion-list-header>
+        Últimos Lançamentos
+      </ion-list-header>
+
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>({{range}} registros)</ion-label>
+          <ion-button slot="end" (click)='addRange()'>+5
+              <ion-icon name="code-download"></ion-icon>
+          </ion-button>
+        </ion-item-divider>
+
+      <ion-item *ngFor="let mov of movimentos | slice:0:range ; index as i">
+          <ion-label>{{mov.data | date: 'dd/MM/yyyy'}}</ion-label>
+          <ion-label>{{mov.historico}}</ion-label>
+          <ion-label>{{mov.valor | currency:"R$ "}}</ion-label>
+          <ion-icon (click)="copyRegister(i)" name="copy"></ion-icon>
+        </ion-item>
+
+      </ion-item-group>
+    </ion-list>
+
+</ion-content>
+

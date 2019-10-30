@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Finanza.Io</ion-title>
+        <ion-button shape="round" slot="end"> {{ patrimonioTotal | currency:"R$ " }}</ion-button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-fab vertical="top" horizontal="center" edge slot="fixed">
+          <ion-fab-button navPush="BalancetePage" mini routerLink="/balancete" routerDirection="root"><ion-icon name="list-box"></ion-icon></ion-fab-button>
+        </ion-fab> 
+      <ion-list>     
+            <ion-card (click)="redirect(item.tipoConta)" type="button" tappable *ngFor="let item of composicao">
+              <ion-card-header>
+                <ion-card-title>
+                  {{ item.tipoConta }} 
+                </ion-card-title>
+                <ion-card-subtitle>{{ item.saldo | currency:"R$ "}}</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+        <!--/ion-item-->
+      </ion-list>    
+
+      <div>
+          <div>
+            <div style="display: block">
+              <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType">
+              </canvas>
+            </div>
+          </div>
+        </div>
+</ion-content>

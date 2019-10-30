@@ -1,0 +1,22 @@
+<ion-content class="ion-padding">
+<h3>Finanza.IO - Finanças Pessoais</h3>
+
+<img src="assets/imgs/tela-inicial.png" alt="logo">
+
+<form>
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input [(ngModel)]="creds.email" name="email" type="text"></ion-input>
+  </ion-item> 
+  <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
+  </ion-item> 
+  <ion-button expand="block" (click)="login()">Entrar</ion-button>
+  </form>  
+
+  <!-- ion-button expand="block" fill="outline">Registrar</ion-button -->
+
+  <ion-button expand="block" outline routerLink="/signup" ruterDirection="root">Registrar</ion-button>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button 
+        fill="clear" 
+        slot="start"
+        routerLink="/operacao/{{ contaId }}"
+        routerDirection="back"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    <ion-title>Movimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-card>      
+        <ion-card-content *ngIf="operacao=='Recebi'">
+            <h2>Recebido <h1> {{ categoriaNome }} </h1> </h2>
+            <h2>Creditado na conta <h1> {{ contaNome }} </h1> </h2>      
+        </ion-card-content>
+        <ion-card-content *ngIf="operacao=='Paguei'">
+            <h2>Retirado de <h1> {{ contaNome }} </h1> </h2>
+            <h2>Para pagamento de <h1> {{ categoriaNome }} </h1> </h2>      
+        </ion-card-content>
+        <ion-card-content *ngIf="operacao=='Transferi'">
+            <h2>Transferido de <h1> {{ contaNome }} </h1> </h2>
+            <h2>Para <h1> {{ categoriaNome }} </h1> </h2>      
+        </ion-card-content>
+      </ion-card>
+          <form [formGroup]="formGroup" (ngSubmit)="inserirMovimento(); $event.preventDefault()"> 
+            <ion-item>
+              <ion-label stacked>Quando?</ion-label>
+              <ion-datetime 
+                formControlName="data" 
+                displayFormat="DD/MM/YYYY" 
+                pickerFormat="DD/MM/YYYY"
+                doneText="Selecionar" 
+                cancelText="Fechar"
+                placeholder="Selecione a Data">
+             </ion-datetime>
+            </ion-item>
+            <p class="danger" *ngIf="formGroup.controls.data.dirty && formGroup.controls.data.errors" margin-left>Valor inválido</p>
+            <ion-item>
+              <ion-label stacked>Quanto?</ion-label>
+              <ion-input
+                 formControlName="valor" 
+                 type="number"
+                 inputmode="decimal"
+                 placeholder="Digite o valor">                 
+              </ion-input>
+            </ion-item>
+            <p class="danger" *ngIf="formGroup.controls.valor.dirty && formGroup.controls.valor.errors" margin-left>Valor inválido</p>
+            <ion-item>
+                <ion-label stacked>Mais Informações</ion-label>
+                <ion-textarea rows="6" cols="20" formControlName="historico" type="text" placeholder="Opcional"></ion-textarea>
+            </ion-item>
+            <p class="danger" *ngIf="formGroup.controls.historico.errors" margin-left>Valor inválido</p>
+            <ion-button type="submit" [disabled]="formGroup.invalid" 
+                        routerLink="/operacao/{{ contaId }}" 
+                        routerDirection="back">CONFIRMAR</ion-button>
+          </form>
+</ion-content>
+
